@@ -43,9 +43,7 @@ class App extends Component {
           value={this.state.userInput}
           placeholder="Enter new task"
           type="text" />
-        <button
-          onClick={this.handleClick}
-        >
+        <button onClick={this.handleClick}>
           Add
         </button>
         {list}
