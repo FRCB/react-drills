@@ -5,41 +5,44 @@ export default class Login extends Component {
         super();
 
         this.state = {
-            username: '',
-            password: '',
+            userInput: '',
+            passwordInput: ''
         }
+
         this.handleUsername = this.handleUsername.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
-        this.handleLogin = this.handleLogin.bind(this)
+        this.handleClick = this.handleClick.bind(this)
+
     }
 
     handleUsername(e) {
-        this.setState({ username: e.target.value })
+        this.setState({ userInput: e.target.value })
     }
 
     handlePassword(e) {
-        this.setState({ password: e.target.value })
+        this.setState({ passwordInput: e.target.value })
     }
 
-    handleLogin() {
-        alert('Username: ${this.state.username} Password: ${this.state.password}')
+    handleClick() {
+        alert(`Username: ${this.state.userInput} Password: ${this.state.passwordInput}`);
     }
+
 
     render() {
         return (
             <div>
                 <input
-                    onChange={this.handleUsername}
                     type="text"
-                />
+                    placeholder="Your username here"
+                    onChange={this.handleUsername} />
                 <input
-                    onChange={this.handlePassword}
                     type="text"
-                />
+                    placeholder="Your password here"
+                    onChange={this.handlePassword} />
                 <button
-                    onClick={this.handleLogin} >
+                    onClick={this.handleClick} >
                     Login
-            </button>
+                </button>
             </div>
         )
     }

@@ -9,12 +9,13 @@ class App extends Component {
       groceries: ['spaghetti', 'ice cream', 'sushi', 'bologna', 'cheese']
     }
   }
+
   render() {
-    let list = this.state.groceries.map((item, i) => {
+    let list = this.state.groceries.map((element, i) => {
       return (
-        <div key={i} >
-          <h2>{item}</h2>
-        </div>
+        <h2 key={i}>
+          {element}
+        </h2>
       )
     })
 

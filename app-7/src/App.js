@@ -8,21 +8,21 @@ class App extends Component {
     super();
 
     this.state = {
-      list: [],
+      taskArr: ['chocolate']
     }
-    this.handleAdd = this.handleAdd.bind(this)
+    this.addTaskToList = this.addTaskToList.bind(this)
   }
 
-  handleAdd(task) {
-    this.setState({ list: [...this.state.list, task] });
+  addTaskToList(task) {
+    this.setState({ taskArr: [...this.state.taskArr, task] })
   }
 
   render() {
     return (
       <div className="App">
-        <h2>My to-do List:</h2>
-        <NewTask add={this.handleAdd} />
-        <List tasks={this.state.list} />
+        <h1>My to-do-list</h1>
+        <NewTask add={this.addTaskToList} />
+        <List tasks={this.state.taskArr} />
       </div>
     );
   }

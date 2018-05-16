@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 
+
+// NewTask should be responsible for adding a new task to a task array on the App component
 export default class NewTask extends Component {
     constructor() {
         super();
 
         this.state = {
-            userInput: ''
+            input: ''
         }
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleClick = this.handleClick.bind(this)
+        this.enterTask = this.enterTask.bind(this)
+        this.addTaskOnClick = this.addTaskOnClick.bind(this)
     }
 
-    handleChange(e) {
-        this.setState({ userInput: e.target.value })
+    enterTask(e) {
+        this.setState({ input: e.target.value })
     }
 
-    handleClick() {
-        this.props.add(this.state.userInput)
-        this.setState({ userInput: '' })
+    addTaskOnClick() {
+        this.props.add(this.state.input);
+        this.setState({ input: '' });
     }
 
     render() {
@@ -26,12 +27,12 @@ export default class NewTask extends Component {
             <div>
                 <input
                     type="text"
+                    value={this.state.input}
                     placeholder="Enter new task"
-                    value={this.state.userInput}
-                    onChange={this.handleChange}
+                    onChange={this.enterTask}
                 />
                 <button
-                    onClick={this.handleClick} >
+                    onClick={this.addTaskOnClick}>
                     Add
                 </button>
             </div >

@@ -7,29 +7,38 @@ class App extends Component {
 
     this.state = {
       groceries: ['spaghetti', 'ice cream', 'sushi', 'bologna', 'cheese'],
-      userInput: ''
+      input: ''
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
-    this.setState({ userInput: e.target.value })
+    this.setState({ input: e.target.value })
   }
 
   render() {
-    let groceriesOnScreen = this.state.groceries.filter((item, i) => {
-      return item.includes(this.state.userInput);
-    }).map((item, i) => {
-      return <h2 key={i}> {item} </h2>
+    let list = this.state.groceries.filter(word => {
+      return word.includes(this.state.input)
+    }).map((element, i) => {
+      return (
+        <h2 key={i}>
+          {element}
+        </h2>
+      )
     })
+
 
     return (
       <div className="App">
         <input
-          onChange={this.handleChange}
-        />
-        {groceriesOnScreen}
+          type="text"
+          placeholder="Enter your text here"
+          onChange={this.handleChange} />
+        <p>
+          {list}
+        </p>
       </div>
+
     );
   }
 }

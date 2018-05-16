@@ -6,22 +6,24 @@ class App extends Component {
     super();
 
     this.state = {
-      userInput: ''
+      input: ''
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
-    this.setState({ userInput: e.target.value })
+    this.setState({ input: e.target.value })
   }
+
 
   render() {
     return (
       <div className="App">
         <input
-          onChange={this.handleChange}
-        />
-        <p>{this.state.userInput}</p>
+          type="text"
+          placeholder="Enter your text here"
+          onChange={this.handleChange} />
+        <h1>{this.state.input}</h1>
       </div>
     );
   }
